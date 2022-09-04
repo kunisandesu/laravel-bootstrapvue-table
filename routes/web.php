@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +21,17 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');
+
+
+Route::middleware('auth')->group(function(){
+    // 要ユーザ認証
+    Route::get('/user', [UserController::class, 'index'])->name('user.index');
+    Route::middleware('verified')->group(function(){
+        // 要メール認証
+        //Route::get('/user/create', [UserController::class, 'create'])->name('user.create');
+    });
+});
+
 
 require __DIR__.'/auth.php';
 

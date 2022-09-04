@@ -22,13 +22,9 @@
 
 
 
-    <h3>参加者一覧</h3> 
-    <h2></h2>
-    <user-component></user-component>
 
     </div>
 
-    </div>
 
 </x-app-layout>
 
