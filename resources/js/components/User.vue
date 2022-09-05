@@ -22,40 +22,11 @@
   </b-table>
 
     <!-- User Interface controls -->
-
-    <b-row>
-
-      <b-col sm="5" md="6" class="my-1">
-       <b-form-group
-          label="Per page"
-          label-for="per-page-select"
-          label-cols-sm="6"
-          label-cols-md="4"
-          label-cols-lg="3"
-          label-align-sm="right"
-          label-size="sm"
-          class="mb-0"
-        >
-          <b-form-select
-            id="per-page-select"
-            v-model="perPage"
-            :options="pageOptions"
-            size="sm"
-          ></b-form-select>
-        </b-form-group>
-      </b-col>
-
-
-
-
-    </b-row>
-
-
     <b-row>
 
       <b-col lg="6" class="my-1">
         <b-form-group
-          label="Filter"
+          label="検索欄"
           label-for="filter-input"
           label-cols-sm="3"
           label-align-sm="right"
@@ -67,7 +38,7 @@
               id="filter-input"
               v-model="filter"
               type="search"
-              placeholder="Type to Search"
+              placeholder="氏名を入力、もしくは右側の検索したい項目をチェックし入力"
             ></b-form-input>
 
             <b-input-group-append>
@@ -80,7 +51,7 @@
       <b-col lg="6" class="my-1">
         <b-form-group
           v-model="sortDirection"
-          label="Filter On"
+          label="検索したい項目にチェック"
           description="Leave all unchecked to filter on all data"
           label-cols-sm="3"
           label-align-sm="right"
@@ -97,6 +68,7 @@
             <b-form-checkbox value="course">コース</b-form-checkbox>
             <b-form-checkbox value="race_day">開催日</b-form-checkbox>
             <b-form-checkbox value="round">ラウンド</b-form-checkbox>
+            <b-form-checkbox value="class">クラス</b-form-checkbox>
           </b-form-checkbox-group>
         </b-form-group>
       </b-col>
@@ -108,7 +80,7 @@
 
       <b-col lg="6" class="my-1">
         <b-form-group
-          label="Sort"
+          label="ソート"
           label-for="sort-by-select"
           label-cols-sm="3"
           label-align-sm="right"
@@ -136,35 +108,43 @@
               size="sm"
               class="w-25"
             >
-              <option :value="false">Asc</option>
-              <option :value="true">Desc</option>
+              <option :value="false">降順</option>
+              <option :value="true">昇順</option>
             </b-form-select>
           </b-input-group>
         </b-form-group>
       </b-col>
 
-      <b-col lg="6" class="my-1">
-        <b-form-group
-          label="Initial sort"
-          label-for="initial-sort-select"
-          label-cols-sm="3"
-          label-align-sm="right"
-          label-size="sm"
-          class="mb-0"
-        >
-          <b-form-select
-            id="initial-sort-select"
-            v-model="sortDirection"
-            :options="['asc', 'desc', 'last']"
-            size="sm"
-          ></b-form-select>
-        </b-form-group>
-      </b-col>
-
-
-
-
     </b-row>
+
+      <b-row>
+
+         <b-col sm="5" md="6" class="my-1">
+            <b-form-group
+               label="表示項目数"
+               label-for="per-page-select"
+               label-cols-sm="6"
+               label-cols-md="4"
+               label-cols-lg="3"
+               label-align-sm="right"
+               label-size="sm"
+               class="mb-0"
+            >
+            <b-form-select
+               id="per-page-select"
+               v-model="perPage"
+               :options="pageOptions"
+               size="sm"
+            ></b-form-select>
+            </b-form-group>
+         </b-col>
+
+     </b-row>
+
+
+
+
+
 
 
   </b-container>
@@ -195,9 +175,11 @@
         currentPage: 1,
         perPage: 5,
         pageOptions: [5, 10, 15, { value: 100, text: "Show a lot" }],
+
         sortBy: '',
         sortDesc: false,
         sortDirection: 'asc',
+
         filter: null,
         filterOn: [],
         infoModal: {
@@ -218,6 +200,10 @@
           })
       }
     },
+
+
+
+
     created() {
       axios.get('/api/users')
       .then((res) => {
@@ -228,6 +214,8 @@
         console.log(err)
       })
     },
+
+
 
 
     methods: {
