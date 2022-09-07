@@ -45,28 +45,28 @@
 
   <p class="example2">
   <font size="3" color="white">
-  予選結果
+  予選
   </font>
   </p>
     <user-component></user-component>
 
   <p class="example3">
   <font size="3" color="white">
-  現在のレース
+  使わない
   </font>
   </p>
     <user-component></user-component>
 
   <p class="example4">
   <font size="3" color="white">
-  次のレース
+  使わない
   </font>
   </p>
     <user-component></user-component>
 
   <p class="example4">
   <font size="3" color="white">
-  決勝
+  使わない
   </font>
   </p>
     <user-component></user-component>

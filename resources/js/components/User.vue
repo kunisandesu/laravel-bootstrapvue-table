@@ -115,6 +115,9 @@
         </b-form-group>
       </b-col>
 
+
+
+
     </b-row>
 
       <b-row>
@@ -173,8 +176,8 @@
         items: [],
         totalRows: 1,
         currentPage: 1,
-        perPage: 5,
-        pageOptions: [5, 10, 15, { value: 100, text: "Show a lot" }],
+        perPage: 100,
+        pageOptions: [5, 10, 100, { value: 100, text: "Show a lot" }],
 
         sortBy: '',
         sortDesc: false,

@@ -28,7 +28,14 @@ class UserController extends Controller
                                'round', 
                                'year', 
                                'category', 
-                               'class'])->orderBy('id', 'desc')->get();
+                               'class'])->where('race_day','>=','2022-08-29')
+                                        ->where("round", "予選")
+                                        ->orderBy("group")
+                                        ->orderBy("course")
+                                        ->get();
+        
+
+        
         return response()->json($users);
     }
 }
