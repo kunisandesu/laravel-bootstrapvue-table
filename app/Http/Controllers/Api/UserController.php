@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 use App\Models\User;
 
 class UserController extends Controller
@@ -16,6 +18,8 @@ class UserController extends Controller
 
     public function users()
     {
+        $twoweeks=Carbon::today()->subDay(12);
+
         $users = User::select(['id', 
                                'name', 
                                'created_at', 
@@ -28,7 +32,8 @@ class UserController extends Controller
                                'round', 
                                'year', 
                                'category', 
-                               'class'])->where('race_day','>=','2022-08-29')
+                               'class'])//->where('race_day','>=','2022-08-29')
+                                        ->whereDate('race_day', '>=', $twoweeks)
                                         ->where("round", "予選")
                                         ->orderBy("group")
                                         ->orderBy("course")
