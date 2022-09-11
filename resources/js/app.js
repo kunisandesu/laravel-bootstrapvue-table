@@ -16,6 +16,10 @@ Vue.use(IconsPlugin)	// BootstrapVueのIconを使用する場合
 /** ↑ここまで **/
 
 Vue.component('user-component', require('./components/User.vue').default);
+Vue.component('usergp1-component', require('./components/Usergp1.vue').default);
+Vue.component('usergp2-component', require('./components/Usergp2.vue').default);
+
+Vue.component('userfinalgp1-component', require('./components/Userfinalgp1.vue').default);
 
 window.Alpine = Alpine;
 

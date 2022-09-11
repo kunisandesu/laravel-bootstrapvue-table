@@ -45,31 +45,31 @@
 
   <p class="example2">
   <font size="3" color="white">
-  予選
+  予選一覧
   </font>
   </p>
     <user-component></user-component>
 
   <p class="example3">
   <font size="3" color="white">
-  使わない
+  予選１組
   </font>
   </p>
-    <user-component></user-component>
+    <usergp1-component></usergp1-component>
 
   <p class="example4">
   <font size="3" color="white">
-  使わない
+  予選２組
   </font>
   </p>
-    <user-component></user-component>
+    <usergp2-component></usergp2-component>
 
   <p class="example4">
   <font size="3" color="white">
-  使わない
+  決勝1組
   </font>
   </p>
-    <user-component></user-component>
+    <userfinalgp1-component></userfinalgp1-component>
 
   </div>
 </body>

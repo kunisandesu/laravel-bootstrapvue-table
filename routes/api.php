@@ -25,3 +25,18 @@ Route::middleware('auth:sanctum')->group(function(){
     Route::get('/users', [UserController::class, 'users']);
 });
 
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/usergp1s', [UserController::class, 'usergp1s']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/usergp2s', [UserController::class, 'usergp2s']);
+});
+
+
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/userfinalgp1s', [UserController::class, 'userfinalgp1s']);
+});
+
+
