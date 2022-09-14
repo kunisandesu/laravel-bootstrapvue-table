@@ -22,7 +22,7 @@
     <style type="text/css">
 
     p {
-    width: 150px;
+    width: 2000px;
     background-color: #2F4F4F;
     }
     
@@ -39,7 +39,7 @@
 
   <p class="example1">
   <font size="5" color="white">
-  参加者一覧
+  ユニバーサルかけっこチャレンジ
   </font>
   </p>
 

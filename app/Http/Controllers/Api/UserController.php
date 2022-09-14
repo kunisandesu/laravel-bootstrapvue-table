@@ -30,14 +30,14 @@ class UserController extends Controller
         $users = User::select(['id', 
                                'name', 
                                'created_at', 
-                               'email', 
+                               //'email', 
                                'group', 
                                'course', 
                                'time', 
                                'point', 
                                'race_day', 
                                'round', 
-                               'year', 
+                               //'year', 
                                'category', 
                                'class'])//->where('race_day','>=','2022-09-29')
                                         ->whereDate('race_day', '>=', $minDay) //レース日が設定した日数より後なら
@@ -51,6 +51,39 @@ class UserController extends Controller
         
         return response()->json($users);
     }
+
+
+    public function usersearches()
+    {
+
+        $minDay=Carbon::today()->addDay($this -> privateTermMin); //本日から最小として設定した日数を加える
+        $maxDay=Carbon::today()->addDay($this -> privateTermMax); //本日から最大として設定した日数を加える ( 次の次のレースを入力しない場合は, これをコメントアウトすれば良い. )
+
+        $users = User::select(['id', 
+                               'name', 
+                               'created_at', 
+                               'email', 
+                               'group', 
+                               'course', 
+                               'time', 
+                               'point', 
+                               'race_day', 
+                               'round', 
+                               'year', 
+                               'category', 
+                               'class'])//->where('race_day','>=','2022-09-29')
+                                        //->whereDate('race_day', '>=', $minDay) //レース日が設定した日数より後なら
+                                        //->whereDate('race_day', '<=', $maxDay) //レース日が設定した日数より前なら ( 次の次のレースを入力しない場合は, これをコメントアウトすれば良い. )
+                                        //->where("round", "予選")
+                                        ->orderBy("group")
+                                        ->orderBy("course")
+                                        ->get();
+                                            
+
+        
+        return response()->json($users);
+    }
+
 
     public function usergp1s()
     {

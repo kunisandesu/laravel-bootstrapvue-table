@@ -26,6 +26,10 @@ Route::middleware('auth:sanctum')->group(function(){
 });
 
 Route::middleware('auth:sanctum')->group(function(){
+    Route::get('/usersearches', [UserController::class, 'usersearches']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
     Route::get('/usergp1s', [UserController::class, 'usergp1s']);
 });
 

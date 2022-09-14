@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
         <meta charset="utf-8">
@@ -12,6 +11,26 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
+        <!-- Add Scripts -->
+        <script src="{{ asset('js/app.js') }}" defer></script>
+
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <style type="text/css">
+
+    p {
+    width: 150px;
+    background-color: #2F4F4F;
+    }
+    
+
+    p.example1 { padding: 10px 0 10px 10px; }
+
+
+    </style>
+
     </head>
     <body class="font-sans antialiased">
         <div class="min-h-screen bg-gray-100">
@@ -27,7 +46,14 @@
             <!-- Page Content -->
             <main>
                 {{ $slot }}
+
+
+
             </main>
         </div>
+
     </body>
 </html>
+
+
+
