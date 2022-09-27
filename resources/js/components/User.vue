@@ -167,8 +167,8 @@
           {key: 'point', label: 'ポイント', sortable: true},
           {key: 'race_day', label: '開催日', sortable: true},
           {key: 'round', label: 'ラウンド', sortable: true},
-          {key: 'email', label: 'E-mail', sortable: true},
-          {key: 'year', label: '年齢', sortable: true},
+          //{key: 'email', label: 'E-mail', sortable: true},
+          //{key: 'year', label: '年齢', sortable: true},
           {key: 'class', label: 'クラス', sortable: true},
           {key: 'category', label: 'ハンデ', sortable: true},
           
@@ -206,18 +206,128 @@
 
 
 
-
+/*
     created() {
-      axios.get('/api/users')
-      .then((res) => {
-        console.log(res)
-        this.items = res.data
-      })
-      .catch((err) => {
-        console.log(err)
-      })
+      setTimeout(() => {
+      setInterval(() => {
+         axios.get('/api/users')
+         .then((res) => {
+           console.log(res)
+           this.items = res.data
+         })
+         .catch((err) => {
+           console.log(err)
+         })
+      }, 3100)
+      }, 1)
     },
 
+
+    taskUpdate() {
+      setTimeout(() => {
+      setInterval(() => {
+
+        const payload = {
+           round: '予選',
+           class: 'ジュニア'
+        }
+
+         axios.patch('/api/update', payload)
+         
+         .then((res) => {
+           console.log(res)
+           this.items = res.data
+         })
+         
+         .catch((err) => {
+           console.log(err)
+         })
+      }, 3100)
+      }, 1)
+    },
+*/
+
+
+created() {
+      setTimeout(() => {
+      setInterval(() => {
+
+        axios.get('/api/users')
+         .then((res) => {
+           console.log(res)
+           this.items = res.data
+         })
+         .catch((err) => {
+           console.log(err)
+         })
+
+      }, 3100)
+      }, 1)
+
+      setTimeout(() => {
+      setInterval(() => {
+      const payload = {
+           class: 'ジュニア'
+        }
+         axios.patch('/api/update', payload),
+         axios.patch('/api/updateThigh', payload),
+         axios.patch('/api/updateLower', payload)
+         /*
+         .then((res) => {
+           console.log(res)
+           this.items = res.data
+         })
+         */
+         .catch((err) => {
+           console.log(err)
+         })
+
+      }, 3800)
+      }, 7)
+
+      setTimeout(() => {
+      setInterval(() => {
+      const payloadMiddle = {
+           class: 'ミドル'
+        }
+         axios.patch('/api/updateMiddle', payloadMiddle),
+         axios.patch('/api/updateThighM', payloadMiddle),
+         axios.patch('/api/updateLowerM', payloadMiddle)
+         /*
+         .then((res) => {
+           console.log(res)
+           this.items = res.data
+         })
+         */
+         .catch((err) => {
+           console.log(err)
+         })
+
+      }, 3900)
+      }, 8)
+
+      setTimeout(() => {
+      setInterval(() => {
+      const payloadSenior = {
+           class: 'シニア'
+        }
+         axios.patch('/api/updateSenior', payloadSenior),
+         axios.patch('/api/updateThighS', payloadSenior),
+         axios.patch('/api/updateLowerS', payloadSenior)
+         /*
+         .then((res) => {
+           console.log(res)
+           this.items = res.data
+         })
+         */
+         .catch((err) => {
+           console.log(err)
+         })
+
+      }, 4000)
+      }, 9)
+
+},
 
 
 

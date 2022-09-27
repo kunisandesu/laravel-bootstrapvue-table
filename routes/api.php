@@ -22,6 +22,43 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 
 
 Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/update', [UserController::class, 'update']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/updateThigh', [UserController::class, 'updateThigh']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/updateLower', [UserController::class, 'updateLower']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/updateMiddle', [UserController::class, 'updateMiddle']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/updateThighM', [UserController::class, 'updateThighM']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/updateLowerM', [UserController::class, 'updateLowerM']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/updateSenior', [UserController::class, 'updateSenior']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/updateThighS', [UserController::class, 'updateThighS']);
+});
+
+Route::middleware('auth:sanctum')->group(function(){
+    Route::patch('/updateLowerS', [UserController::class, 'updateLowerS']);
+});
+
+
+Route::middleware('auth:sanctum')->group(function(){
     Route::get('/users', [UserController::class, 'users']);
 });
 
