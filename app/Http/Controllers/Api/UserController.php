@@ -9,7 +9,7 @@ use Carbon\Carbon;
 
 use App\Models\User;
 
-use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB; //クエリビルダを使うため追記
 
 
 class UserController extends Controller
@@ -40,8 +40,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 180 + 40;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 180 + 40;          
             $user->save();
             $i++;
         }
@@ -61,8 +61,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 300 + 40;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 300 + 40;          
             $user->save();
             $i++;
         }
@@ -81,8 +81,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 240 + 40;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 240 + 40;          
             $user->save();
             $i++;
         }
@@ -101,8 +101,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 180 + 10;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 180 + 10;          
             $user->save();
             $i++;
         }
@@ -122,8 +122,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 300 + 10;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 300 + 10;          
             $user->save();
             $i++;
         }
@@ -142,8 +142,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 240 + 10;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 240 + 10;          
             $user->save();
             $i++;
         }
@@ -162,8 +162,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 180 + 20;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 180 + 20;          
             $user->save();
             $i++;
         }
@@ -183,8 +183,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 300 + 20;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 300 + 20;          
             $user->save();
             $i++;
         }
@@ -203,8 +203,8 @@ class UserController extends Controller
         $i = 0;
         foreach($users as $user) {
 
-            $point = $user->pluck('time');
-            $user->point = $point[$i] * 100 + 240 + 20;          
+            $time = $user->pluck('time');
+            $user->point = $time[$i] * 100 + 240 + 20;          
             $user->save();
             $i++;
         }
@@ -270,6 +270,7 @@ class UserController extends Controller
                                         //->whereDate('race_day', '<=', $maxDay) //レース日が設定した日数より前なら ( 次の次のレースを入力しない場合は, これをコメントアウトすれば良い. )
                                         //->where("round", "予選")
                                         ->orderBy("race_day", 'desc')
+                                        ->orderBy("round")
                                         ->orderBy("group")
                                         ->orderBy("course")
                                         ->get();

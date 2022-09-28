@@ -248,8 +248,8 @@
 */
 
 
-created() {
-      setTimeout(() => {
+   created() {
+    setTimeout(() => {
       setInterval(() => {
 
         axios.get('/api/users')
@@ -262,74 +262,72 @@ created() {
          })
 
       }, 3100)
-      }, 1)
+   }, 1)
 
-      setTimeout(() => {
+    setTimeout(() => {
       setInterval(() => {
-      const payload = {
+        const payload = {
            class: 'ジュニア'
         }
-         axios.patch('/api/update', payload),
-         axios.patch('/api/updateThigh', payload),
-         axios.patch('/api/updateLower', payload)
-         /*
-         .then((res) => {
-           console.log(res)
-           this.items = res.data
-         })
-         */
-         .catch((err) => {
+        axios.patch('/api/update', payload),
+        axios.patch('/api/updateThigh', payload),
+        axios.patch('/api/updateLower', payload)
+        /*
+        .then((res) => {
+          console.log(res)
+          this.items = res.data
+        })
+        */
+        .catch((err) => {
            console.log(err)
-         })
+        })
 
       }, 3800)
-      }, 7)
+    }, 7)
 
-      setTimeout(() => {
+    setTimeout(() => {
       setInterval(() => {
-      const payloadMiddle = {
-           class: 'ミドル'
+        const payloadMiddle = {
+            class: 'ミドル'
         }
-         axios.patch('/api/updateMiddle', payloadMiddle),
-         axios.patch('/api/updateThighM', payloadMiddle),
-         axios.patch('/api/updateLowerM', payloadMiddle)
-         /*
-         .then((res) => {
+        axios.patch('/api/updateMiddle', payloadMiddle),
+        axios.patch('/api/updateThighM', payloadMiddle),
+        axios.patch('/api/updateLowerM', payloadMiddle)
+        /*
+        .then((res) => {
            console.log(res)
            this.items = res.data
-         })
-         */
-         .catch((err) => {
+        })
+        */
+        .catch((err) => {
            console.log(err)
-         })
+        })
 
       }, 3900)
-      }, 8)
+    }, 8)
 
-      setTimeout(() => {
+    setTimeout(() => {
       setInterval(() => {
-      const payloadSenior = {
+        const payloadSenior = {
            class: 'シニア'
         }
-         axios.patch('/api/updateSenior', payloadSenior),
-         axios.patch('/api/updateThighS', payloadSenior),
-         axios.patch('/api/updateLowerS', payloadSenior)
-         /*
-         .then((res) => {
+        axios.patch('/api/updateSenior', payloadSenior),
+        axios.patch('/api/updateThighS', payloadSenior),
+        axios.patch('/api/updateLowerS', payloadSenior)
+        /*
+        .then((res) => {
            console.log(res)
            this.items = res.data
-         })
-         */
-         .catch((err) => {
+        })
+        */
+        .catch((err) => {
            console.log(err)
-         })
+        })
 
       }, 4000)
-      }, 9)
+    }, 9)
 
-},
-
-
+   },
 
     methods: {
       info(item, index, button) {
